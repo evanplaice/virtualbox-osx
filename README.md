@@ -6,6 +6,16 @@ While there is a lot of good information to be found online, virtually every tut
 
 This project completely automates the process of creating an OSX virtual machine that will run on Apple hardware.
 
+**LEGAL NOTICE:**
+
+Apple specifies limits on the creation/usage of OSX virtual machines in the EULA.
+
+> (iii) to install, use and run up to two (2) additional copies or instances of the Apple Software within virtual operating system environments on each Mac Computer you own or control that is already running the Apple Software.
+
+*Source: http://apple.stackexchange.com/a/20969/19755*
+
+If you need to run multiple configurations [here's a guide on how to use snapshots](http://www.howtogeek.com/150258/how-to-save-time-by-using-snapshots-in-virtualbox/).
+
 ### Usage
 
 1. Verify that 'Install OS X El Capitan.app' is in the `/Applications` directory
