@@ -44,18 +44,18 @@ If you need to run multiple configurations [here's a guide on how to use snapsho
 - VRAM - 128MB
 
 *Note: This setup has been verified on an iMac (Late2009). The settings are currently hardcoded in `virtualbox-osx.sh` if you need/want to make changes.* 
- 
+
 ### Files
 
 - virtualbox-osx.sh
 
   Creates an OSX virtualbox profile + vdisk image
 
-- osx-install-iso.sh
+- osx-install-iso.sh [name] [dir]
 
   Creates an install disk iso from the stock `Install OS X El Capitan.app`
 
-- vdi-attach.sh
+- vdi-attach.sh [vdisk-path]
 
   Attaches a VirtualBox VDI (Virtual Disk Image) as if it were a physical disk using fairy dust and magic
 
