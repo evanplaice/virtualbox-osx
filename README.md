@@ -11,6 +11,8 @@ This project completely automates the process of creating an OSX virtual machine
 1. Verify that 'Install OS X El Capitan.app' is in the `/Applications` directory
 2. Run `./virtualbox-osx.sh`
 
+*Note: The script will output to `~/VirtualBox VMs/OSX-El-Capitan`*
+
 ### How it works
 
 1. An install ISO is created from the `.app` file
@@ -18,7 +20,7 @@ This project completely automates the process of creating an OSX virtual machine
 3. The VDisk is attached (ie not mounted) as a fake physical disk
 4. The VDisk is formatted as a JHFS+ volume
 5. The VDisk is detached
-5. A new VirtualBox VM is created with the VDisk attached and a few 'sane' defaults
+5. A new VirtualBox VM is created with the VDisk + ElCapitan.iso attached and a few 'sane' defaults
 
 *Note: The VM will boot into the OSX installer. After installation is complete, don't forget to detach the install disc (ie `ElCapitan.iso`).*
 
@@ -65,11 +67,11 @@ While the `install.app` contains everything needed to create an `installer.iso`,
 
 **[Puppies Farting Rainbows and a Bodybuilding Unicorn](http://i.imgur.com/BmGsO.jpg)**
 
-Fairy dust and magic can be both wonderful and terrifying. Seeing a comment that says `// here be magic` is usually a really bad sign. Since you're here I'll attempt to explain the details of mounting a VDI as a fake disk sans excessive 'hand waving'.
+Fairy dust and magic can be both wonderful and terrifying. Seeing a comment that says `// here be magic` is usually a really, really bad sign. Since you're still reading (such a trooper, you are) I'll attempt to explain the details of mounting a VDI as a fake disk sans any excessive 'hand waving'.
 
 Mounting disk images is nothing new. At the OS level, it simply maps a new volume and uses the contents of the image as if it were raw disk data.
 
-Virtual Disks don't work with standard mounting tools because they contain additional metadat at the head of the raw binary data. To make things more comples, the metadata length is not fixed.
+Virtual Disks don't work with standard mounting tools because they contain additional metadata at the head of the raw binary data. To make things more comples, the metadata length is not fixed.
 
 The `vdi-attach.sh` script solves that issue by decoding the header length field using nothin but standard POSIX CLI tools.
 
