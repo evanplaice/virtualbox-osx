@@ -5,6 +5,15 @@
 # set the profile name
 VM='OSX-El-Capitan'
 
+# set the location where the VM will be created
+VM_DIR="${HOME}/VirtualBox VMs/$VM"
+
+# create the VM directory
+mkdir "$VM_DIR"
+
+# create the install ISO
+ISO_PATH=$(./osx-install-iso.sh "$VM" "$VM_DIR" | tail -n1)
+
 # create a new virtual disk
 VBoxManage createhd --filename "$VM_DIR/$VM.vdi" --variant fixed --size 32768
 
