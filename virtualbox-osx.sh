@@ -21,10 +21,10 @@ VBoxManage createhd --filename "$VM_DIR/$VM.vdi" --variant fixed --size 32768
 RAW_DISK=$(./vdi-attach.sh "$VM_DIR/$VM.vdi" | tail -n1)
 
 # format the virtual disk
-diskutil eraseDisk JHFS+ "$VM" "$RAW_DISK"
+diskutil eraseDisk JHFS+ "$VM" $RAW_DISK
 
 # detach the virtual disk
-hdiutil detach "$RAW_DISK"
+hdiutil detach $RAW_DISK
 
 # create an OSX 10.00 El Capitan x64 profile
 VBoxManage createvm --register --name "$VM" --ostype MacOS_64
