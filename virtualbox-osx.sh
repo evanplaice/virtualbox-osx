@@ -32,7 +32,7 @@ VBoxManage createvm --register --name "$VM" --ostype MacOS_64
 # create a new virtual SATA controller,  attach the virtual disk and installation iso
 VBoxManage storagectl "$VM" --name "SATA Controller" --add sata --controller IntelAHCI
 VBoxManage storageattach "$VM" --storagectl "SATA Controller" --port 0 --device 0 --type hdd --medium "$VM_DIR/$VM.vdi"
-VBoxManage storageattach "$VM" --storagectl "SATA Controller" --port 1 --device 0 --type dvddrive --medium ./ElCapitan.iso
+VBoxManage storageattach "$VM" --storagectl "SATA Controller" --port 1 --device 0 --type dvddrive --medium "$VM_DIR/$VM.iso"
 
 # modify some system settings
 VBoxManage modifyvm "$VM" --chipset piix3
